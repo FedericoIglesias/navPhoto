@@ -5,7 +5,7 @@ import MyLikes from './component/myLikes';
 function App() {
   return (
     <div>
-      <Home />
+      <Home git pu/>
       <MyLikes/>
     </div>
   );
