@@ -1,19 +1,19 @@
 import React from "react";
-import { useEffect, useState } from "react";
-
-function Header() {
 
 
-    let [change, setChange] = useState("My Likes");
-
-    let changePage = () => {change == 'My Likes'? setChange('Go back'): setChange('My Likes')}
-
-    return (
-        <>
+function Header (){
+    return(
+        <div style={{
+            backgroundColor: 'red',
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            color: 'white'
+        }}>
             <h1>NavPhoto</h1>
-            <button onClick={changePage}>{change}</button>
-        </>
-    );
+            <p>My Likes</p>
+        </div>
+    )
 }
 
 export default Header;
