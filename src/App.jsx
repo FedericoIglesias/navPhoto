@@ -2,13 +2,16 @@ import React from "react";
 import { PhotoList } from "./component/photoList";
 import Header from "./component/header";
 import Footer from "./component/footer";
+import Proof from "./component/proof";
+import SearchFilter from "./component/searchFilter";
 
 function App() {
   
   return (
     <>
     <Header/>
-    <h1>hola</h1>
+    <Proof/>
+    <SearchFilter/>
     <PhotoList/>
     <Footer/>
     </>
