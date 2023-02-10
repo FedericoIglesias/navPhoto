@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-const keyApi = '5KvLy1fiZTTTZFm5ku2w8w4Qk3mcWiN6x5wPnhoOUcg'
+const keyApi = '9Vj0vvFRBx77TZG9w-VGOyUxMolWLzKBiR8rYtJzZdM'
 
 let initialState = {
     list: []
@@ -11,7 +11,8 @@ export let   searchPhoto = createAsyncThunk( 'search/searchPhoto',  async(arg,th
     const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${keyApi}&count=3`);
     const data = await response.json();
     console.log('dentro de searchPhoto')
-    return [...data]
+    console.log(data)
+    return [data]
 });
 
 
