@@ -13,7 +13,6 @@ export let searchPhoto = createAsyncThunk('search/searchPhoto', async (arg, thun
     try {
         const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${keyApi}&count=8`);
         const data = await response.json();
-        console.log('dentro de searchPhoto')
         return [...data]
     } catch (error) {
         alert(`${error}`)
@@ -31,7 +30,6 @@ export const searchSlice = createSlice({
         },
         [searchPhoto.fulfilled]: (state, action) => {
             state.list = action.payload;
-            console.log('estoy en fulfilled')
             console.log(state.list)
         },
         [searchPhoto.rejected]: (state) => {
