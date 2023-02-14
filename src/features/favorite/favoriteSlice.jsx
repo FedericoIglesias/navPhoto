@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useEffect } from "react";
 import React from "react";
 
 let initialState = {
-    list: []
+    list: JSON.parse(localStorage.getItem('myFavorites')) || []
 }
+
+
 
 
 let favoriteSlice = createSlice({
@@ -15,14 +18,34 @@ let favoriteSlice = createSlice({
                 return state.list = [...state]
             } else {
                 state.list.push(action.payload)
+                localStorage.setItem('myFavorites', JSON.stringify(state.list))
             }
         },
         removeFavorite: (state, action) => {
             state.list = state.list.filter(item => item.id !== action.payload.id)
+            localStorage.setItem('myFavorites', JSON.stringify(state.list))
+        },
+        sortBy: (state, action) => {
+            switch (action.payload) {
+                case 'height':
+                    state.list.sort((a, b) => { return a.height - b.height })
+                    break
+                case 'width':
+                    state.list.sort((a, b) => { return  a.width - b.width })
+                    break
+                case 'likes':
+                    state.list.sort((a, b) => { return a.likes - b.likes })
+                    break
+                case 'dateAdd':
+                    state.list.sort((a, b) => { return a.date - b.date })
+                    break
+                default:
+                    state.list = JSON.parse(localStorage.getItem('myFavorites'))
+            }
         }
     }
 })
 
 
 export default favoriteSlice.reducer;
-export const { addFavorite } = favoriteSlice.actions
+export const { addFavorite, removeFavorite, sortBy } = favoriteSlice.actions

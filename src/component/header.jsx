@@ -11,7 +11,10 @@ function Header (){
             color: 'white'
         }}>
             <h1>NavPhoto</h1>
+            <nav>
+            <p>Home</p>
             <p>My Likes</p>
+            </nav>
         </div>
     )
 }

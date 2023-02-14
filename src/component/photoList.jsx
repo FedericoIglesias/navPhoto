@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { React, useState, useEffect } from "react";
+import { React, useEffect } from "react";
 import { searchPhoto } from "../features/search/searchSlice";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -14,13 +14,13 @@ export function PhotoList() {
 
     let dispatch = useDispatch()
     let photos = useSelector(store => store.search.list)
-    let favorite = useSelector(store => store.favorite)
+
 
     useEffect(() => {
         dispatch(searchPhoto())
     }, []
     )
-    console.log(favorite)
+
 
     let handleClick = (e) => {
         dispatch(addFavorite(e))
@@ -38,7 +38,16 @@ export function PhotoList() {
                             alt={photos[i].alt_description}
                             loading="lazy"
                         />
-                        <FavoriteIcon style={{ color: 'red', position: 'relative', top: '-30px', left: '10px'}} onClick={() => handleClick(photos[i])} />
+                        <FavoriteIcon style={{ color: 'red', position: 'relative', top: '-30px', left: '10px'}} onClick={() => handleClick({
+                            id: photos[i].id,
+                            width: photos[i].width,
+                            height: photos[i].height,
+                            likes: photos[i].likes,
+                            urls: photos[i].urls,
+                            description: photos[i].alt_description,
+                            date: new Date()
+                            
+                        })} />
                     </ImageListItem>
                     )
 
