@@ -11,7 +11,7 @@ let initialState = {
 
 export let searchPhoto = createAsyncThunk('search/searchPhoto', async (arg, thunkAPI) => {
     try {
-        const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${keyApi}&count=8`);
+        const response = await fetch(`https://api.unsplash.com/photos?client_id=${keyApi}&page=${arg}&per_page=6`);
         const data = await response.json();
         return [...data]
     } catch (error) {
