@@ -18,7 +18,7 @@ export function PhotoList() {
     let [page, setPage] = useState(1)
 
     useEffect(() => {
-        dispatch(searchPhoto(page))
+        dispatch(searchPhoto({page}))
     }, [page]
     )
 
@@ -49,7 +49,6 @@ export function PhotoList() {
                             urls: photos[i].urls,
                             description: photos[i].alt_description,
                             date: new Date()
-
                         })} />
                     </ImageListItem>
                     )

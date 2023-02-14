@@ -11,7 +11,7 @@ function FavoriteList() {
 
     let myFavorite = useSelector(store => store.favorite.list)
     let dispatch = useDispatch()
-console.log(myFavorite)
+
 
     let handleClick = (e) => {
         dispatch(removeFavorite(e))

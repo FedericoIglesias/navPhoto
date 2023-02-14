@@ -1,17 +1,25 @@
-import { React } from "react";
+import { React, useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from "react-redux";
 import { sortBy } from "../features/favorite/favoriteSlice";
+import { searchPhoto } from "../features/search/searchSlice";
+import { sortSearch } from "../features/search/searchSlice";
 
 function SearchOrder() {
 
+    let [search, setSearch] = useState('')
+
     let dispatch = useDispatch()
 
-    let onChange = (e) => {
+    let onSort = (e) => {
         dispatch(sortBy(e.target.value))
-        console.log(e.target.value)
+        dispatch(sortSearch(e.target.value))
     }
 
+    // useEffect(() => {
+    //     dispatch(searchPhoto({search}))
+    // }, [search] )
+    
     return (
         <div style={{
             display: 'flex',
@@ -20,7 +28,7 @@ function SearchOrder() {
         }}>
             <div>
                 <label htmlFor="" style={{ marginRight: '5px' }}>Sort by</label>
-                <select name="filter" id="" placeholder="Filter" onChange={(target) => {onChange(target)}}>
+                <select name="filter" id="" placeholder="Filter" onChange={(target) => {onSort(target)}}>
                     <option value="none">None</option>
                     <option value="width">Width</option>
                     <option value="height">Height</option>
@@ -33,11 +41,11 @@ function SearchOrder() {
                 marginRight: '5%'
 
             }}>
-                <input type="text" placeholder="Search" style={{
+                <input onChange={(ev) => setSearch(ev.target.value)} type="text" placeholder="Search" style={{
                     borderRadius: '5px',
                     padding: '2px 4px',
-
                 }} /><SearchIcon />
+                
             </div>
         </div>
     );
