@@ -3,7 +3,7 @@ import { React, useEffect, useState } from "react";
 import { searchPhoto } from "../features/search/searchSlice";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-import Skeleton from '@mui/material/Skeleton';
+
 import ImageListItem from '@mui/material/ImageListItem';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addFavorite } from "../features/favorite/favoriteSlice";
@@ -16,17 +16,32 @@ export function PhotoList() {
     let dispatch = useDispatch()
     let photos = useSelector(store => store.search.list)
     let [page, setPage] = useState(1)
+    let [styleAddPhoto, setStyleAddPhoto] = useState({ display: 'none' })
+    let time = setTimeout(() => {
+        setStyleAddPhoto({ display: 'none' })
+    }, 5000);
+    console.log(photos)
 
     useEffect(() => {
-        dispatch(searchPhoto({page}))
+        dispatch(searchPhoto({ page }))
     }, [page]
     )
 
 
     let handleClick = (e) => {
         dispatch(addFavorite(e))
+        setStyleAddPhoto({
+            backgroundColor: 'green',
+            width: '100px',
+            position: 'fixed',
+            bottom: '200px',
+            right: '50px',
+            textAlign: 'center',
+            color: 'white'
+        })
+        time()
     }
-    
+
     let handleChange = (e, p) => {
         setPage(p)
     }
@@ -55,11 +70,14 @@ export function PhotoList() {
                 })}
             </Container>
             <div style={{ margin: '20px', display: 'flex', justifyContent: 'center' }}>
-                    <Pagination
-                        count={10}
-                        page={page}
-                        onChange={handleChange}
-                    />
+                <Pagination
+                    count={10}
+                    page={page}
+                    onChange={handleChange}
+                />
+            </div>
+            <div style={styleAddPhoto}>
+                <p>The photo is add</p>
             </div>
         </>
     )

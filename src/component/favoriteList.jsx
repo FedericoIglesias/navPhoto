@@ -6,6 +6,9 @@ import Skeleton from '@mui/material/Skeleton';
 import ImageListItem from '@mui/material/ImageListItem';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import { removeFavorite } from "../features/favorite/favoriteSlice";
+import DownloadIcon from '@mui/icons-material/Download';
+import { saveAs } from "file-saver";
+
 
 function FavoriteList() {
 
@@ -17,6 +20,9 @@ function FavoriteList() {
         dispatch(removeFavorite(e))
     }
 
+    let handleDownload = (e) => {
+        saveAs(e)
+    }
 
     return (
         <>
@@ -30,6 +36,7 @@ function FavoriteList() {
                             loading="lazy"
                         />
                         <HeartBrokenIcon style={{ color: 'red', position: 'relative', top: '-30px', left: '10px' }} onClick={() => handleClick(myFavorite[i])} />
+                        <DownloadIcon style={{ color: 'white', position: 'relative', top: '-30px', left: '240px' }} onClick={() => handleDownload(myFavorite[i].urls.regular)}/>
                     </ImageListItem>
                     )
                 })}
