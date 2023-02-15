@@ -20,7 +20,7 @@ export function PhotoList() {
     let time = setTimeout(() => {
         setStyleAddPhoto({ display: 'none' })
     }, 5000);
-    console.log(photos)
+
 
     useEffect(() => {
         dispatch(searchPhoto({ page }))
@@ -63,6 +63,7 @@ export function PhotoList() {
                             likes: photos[i].likes,
                             urls: photos[i].urls,
                             description: photos[i].alt_description,
+                            auxDescription: photos[i].alt_description,
                             date: new Date()
                         })} />
                     </ImageListItem>

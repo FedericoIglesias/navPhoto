@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useEffect } from "react";
-import React from "react";
+
 
 let initialState = {
     list: JSON.parse(localStorage.getItem('myFavorites')) || []
@@ -25,6 +24,18 @@ let favoriteSlice = createSlice({
             state.list = state.list.filter(item => item.id !== action.payload.id)
             localStorage.setItem('myFavorites', JSON.stringify(state.list))
         },
+        editDescription: (state, action) => {
+            state.list = state.list.map(item => {
+                console.log(action.payload.id.id)
+                if (item.id === action.payload.id.id) {
+                    console.log('soy true')
+                    return {...item, description: action.payload.description};
+                } else {
+                    return item;
+                }
+            })
+            localStorage.setItem('myFavorites', JSON.stringify(state.list));
+        },
         sortBy: (state, action) => {
             switch (action.payload) {
                 case 'height':
@@ -48,4 +59,4 @@ let favoriteSlice = createSlice({
 
 
 export default favoriteSlice.reducer;
-export const { addFavorite, removeFavorite, sortBy } = favoriteSlice.actions
+export const { addFavorite, removeFavorite, sortBy, editDescription } = favoriteSlice.actions

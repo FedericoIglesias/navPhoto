@@ -12,8 +12,8 @@ let initialState = {
 
 export let searchPhoto = createAsyncThunk('search/searchPhoto', async (arg, thunlApi) => {
     try {
-        console.log('soy el search ' + arg.page)
-            const response = await fetch(`https://api.unsplash.com/photos?client_id=${keyApi}&page=${arg.page}&per_page=6`);
+        console.log(arg.page)
+            const response = await fetch(`https://api.unsplash.com/photos?client_id=${keyApi}&page=${arg.page}&per_page=24`);
             const data = await response.json();
             return [...data]
         
@@ -53,7 +53,6 @@ export const searchSlice = createSlice({
         },
         [searchPhoto.fulfilled]: (state, action) => {
             state.list = action.payload;
-            console.log(state.list)
 
         },
         [searchPhoto.rejected]: (state) => {

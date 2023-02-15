@@ -5,13 +5,13 @@ import Footer from "./component/footer";
 import Proof from "./component/proof";
 import SearchOrder from "./component/searchFilter";
 import FavoriteList from "./component/favoriteList";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Proof />
       <SearchOrder />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/my-likes" element={<FavoriteList />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
     </>
   );
 }
