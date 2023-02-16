@@ -3,7 +3,6 @@ import { React, useEffect, useState } from "react";
 import { searchPhoto } from "../features/search/searchSlice";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
-
 import ImageListItem from '@mui/material/ImageListItem';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addFavorite } from "../features/favorite/favoriteSlice";
@@ -21,7 +20,7 @@ export function PhotoList() {
         setStyleAddPhoto({ display: 'none' })
     }, 1000);
 
-
+    
     useEffect(() => {
         dispatch(searchPhoto({ page }))
     }, [page]
