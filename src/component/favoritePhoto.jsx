@@ -1,5 +1,5 @@
-import { React,  } from "react";
-import { useDispatch,  } from "react-redux";
+import { React, } from "react";
+import { useDispatch, } from "react-redux";
 import ImageListItem from '@mui/material/ImageListItem';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import { removeFavorite } from "../features/favorite/favoriteSlice";
@@ -20,12 +20,10 @@ const FavoritePhoto = ({ item }) => {
         saveAs(e)
     }
 
-
-
     return (
         <>
             <div style={{ height: '600px', position: 'relative' }}>
-                <ImageListItem  style={{ height: '300px', width: '300px', padding: '0px' }}>
+                <ImageListItem style={{ height: '300px', width: '300px', padding: '0px' }}>
                     <img
                         src={item.urls.small_s3}
                         alt={item.description}
@@ -37,14 +35,11 @@ const FavoritePhoto = ({ item }) => {
                     <p>Likes: {item.likes}</p>
                     <p>Width: {item.width}</p>
                     <p>Height: {item.height}</p>
-                    <p>Date: {item.date}</p>
-                    <p>Id: {item.id}</p>
                     <p>Description: {item.description}</p>
-                    <div style={{ position: 'relative', left: '230px' }}>
-                    <Modal  id={item.id} auxDescription={item.auxDescription} />
-                    </div>
-                    
                 </div>
+                    <div style={{ position: 'absolute', left: '230px', bottom: '0px' }}>
+                        <Modal id={item.id} auxDescription={item.auxDescription} />
+                    </div>
             </div>
         </>
     )

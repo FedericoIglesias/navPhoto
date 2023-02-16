@@ -1,4 +1,4 @@
-import {React} from "react";
+import {React, useEffect} from "react";
 import { useSelector } from "react-redux";
 import Container from '@mui/material/Container';
 
@@ -8,7 +8,6 @@ function FavoriteList() {
 
     let myFavorite = useSelector(store => store.favorite.list)
     
-    console.log(myFavorite)
 
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>

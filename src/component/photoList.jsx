@@ -19,7 +19,7 @@ export function PhotoList() {
     let [styleAddPhoto, setStyleAddPhoto] = useState({ display: 'none' })
     let time = setTimeout(() => {
         setStyleAddPhoto({ display: 'none' })
-    }, 5000);
+    }, 1000);
 
 
     useEffect(() => {
@@ -29,7 +29,6 @@ export function PhotoList() {
 
 
     let handleClick = (e) => {
-        clearTimeout(time)
         dispatch(addFavorite(e))
         setStyleAddPhoto({
             backgroundColor: 'green',

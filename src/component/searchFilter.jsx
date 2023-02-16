@@ -1,9 +1,10 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from "react-redux";
 import { sortBy } from "../features/favorite/favoriteSlice";
 import { searchPhoto } from "../features/search/searchSlice";
 import { sortSearch } from "../features/search/searchSlice";
+import { searchFAvorite } from "../features/favorite/favoriteSlice";
 
 function SearchOrder() {
 
@@ -18,11 +19,10 @@ function SearchOrder() {
 
     let searchAction = () =>{
         dispatch(searchPhoto({search}))
+        dispatch(searchFAvorite(search))
     }
-    // useEffect(() => {
-    //     dispatch(searchPhoto({search}))
-    // }, [search] )
-    
+
+
     return (
         <div style={{
             display: 'flex',

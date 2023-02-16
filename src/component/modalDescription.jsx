@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
 import { editDescription } from "../features/favorite/favoriteSlice";
+import { fontWeight } from "@mui/system";
 
 
 const style = {
@@ -19,8 +20,21 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-    
+    maxWidth: '500px'
 };
+
+const styleButton = {
+    borderRadius: '10px',
+    backgroundColor: '#900c3f',
+    border: 'none',
+    padding: '5px',
+    fontWeight: 700
+}
+const styleInput = {
+    width: '70%',
+    margin: '2px',
+    border: '5px solide black'
+}
 
 export let ModalDescription = (id, auxDescription) => {
     const [open, setOpen] = React.useState(false);
@@ -36,7 +50,7 @@ export let ModalDescription = (id, auxDescription) => {
     }
 
     let addDescription = (id, description) => {
-        dispatch(editDescription({id, description}))
+        dispatch(editDescription({ id, description }))
         setOpen(false)
         setDescription('')
     }
@@ -46,14 +60,14 @@ export let ModalDescription = (id, auxDescription) => {
         setDescription('')
     }
     let defaultDescription = (id, description) => {
-            dispatch(editDescription({id, description}))
-            setOpen(false)
-            setDescription('')
+        dispatch(editDescription({ id, description }))
+        setOpen(false)
+        setDescription('')
     }
 
     return (
         <div>
-            <Button onClick={handleOpen}><EditIcon/></Button>
+            <Button onClick={handleOpen}><EditIcon /></Button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -67,12 +81,12 @@ export let ModalDescription = (id, auxDescription) => {
                             Add description
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            <input type="text" onChange={(e) => handleChange(e.target.value)}/>
+                            <input type="text" onChange={(e) => handleChange(e.target.value)} style={styleInput} />
                         </Typography>
-                        <div>
-                        <button onClick={() => {addDescription(id, description)}} >Ok</button>
-                        <button onClick={cancelDescription}>Cancel</button>
-                        <button onClick={() => {defaultDescription(id,id.auxDescription)}}>Defaul description</button>
+                        <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '5px' }}>
+                            <button onClick={() => { addDescription(id, description) }} style={styleButton} >Ok</button>
+                            <button onClick={cancelDescription} style={styleButton}>Cancel</button>
+                            <button onClick={() => { defaultDescription(id, id.auxDescription) }} style={styleButton}>Defaul description</button>
                         </div>
                     </Box>
                 </Fade>

@@ -12,12 +12,12 @@ let initialState = {
 
 export let searchPhoto = createAsyncThunk('search/searchPhoto', async (arg, thunlApi) => {
     try {
-        if (!arg.searchValue || arg.searchValue === '') {
+        if (!arg.search || arg.search === '') {
             const response = await fetch(`https://api.unsplash.com/photos/random?client_id=${keyApi}&count=30`);
             const data = await response.json();
             return [...data];
         } else {
-            const response = await fetch(`https://api.unsplash.com/search/photos?client_id=${keyApi}&query=${arg.searchValue}&per_page=30&page=${arg.value}`);
+            const response = await fetch(`https://api.unsplash.com/search/photos?client_id=${keyApi}&query=${arg.search}&per_page=30&page=${arg.value}`);
             const data = await response.json();
             return [...data.results];
         }

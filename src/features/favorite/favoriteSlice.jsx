@@ -53,10 +53,20 @@ let favoriteSlice = createSlice({
                 default:
                     state.list = JSON.parse(localStorage.getItem('myFavorites'))
             }
+        },
+        searchFAvorite: (state, action) => {
+            console.log(action.payload)
+            if (action.payload === '') {
+                state.list = JSON.parse(localStorage.getItem('myFavorites'));
+            } else {
+                state.list = JSON.parse(localStorage.getItem('myFavorites'));
+                state.list = state.list.filter(item => item.description.toLowerCase().includes(action.payload.toLowerCase()));
+            }
+            
         }
     }
 })
 
 
 export default favoriteSlice.reducer;
-export const { addFavorite, removeFavorite, sortBy, editDescription } = favoriteSlice.actions
+export const { addFavorite, removeFavorite, sortBy, editDescription, searchFAvorite } = favoriteSlice.actions
