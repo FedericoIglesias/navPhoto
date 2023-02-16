@@ -16,7 +16,7 @@ function App() {
       <Proof />
       <SearchOrder />
       <Routes>
-        <Route path="/" element={<PhotoList />} />
+        <Route path="/navPhoto" element={<PhotoList />} />
         <Route path="/my-likes" element={<FavoriteList />} />
       </Routes>
       <Footer />

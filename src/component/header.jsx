@@ -14,7 +14,7 @@ function Header (){
         }}>
             <h1 style={{marginLeft: '30px'}}>NavPhoto</h1>
             <nav style={{display: 'flex'}}>
-            <Link to='/' style={{color: 'white', textDecorationLine: 'none'}} >Home</Link>
+            <Link to='/navPhoto' style={{color: 'white', textDecorationLine: 'none'}} >Home</Link>
             <Link to='/my-likes' style={{color: 'white', textDecorationLine: 'none', margin: '0 30px',}} >My Likes</Link>
             </nav>
         </div>
