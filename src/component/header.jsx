@@ -1,19 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const styleNav = {
+
+}
+
 function Header (){
     return(
         <div style={{
             backgroundColor: 'red',
             display: 'flex',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: 'center',
             color: 'white'
         }}>
-            <h1>NavPhoto</h1>
+            <h1 style={{marginLeft: '30px'}}>NavPhoto</h1>
             <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/my-likes'>My Likes</Link>
+            <Link to='/' style={{color: 'white', textDecorationLine: 'none'}} >Home</Link>
+            <Link to='/my-likes' style={{color: 'white', textDecorationLine: 'none', margin: '0 30px'}} >My Likes</Link>
             </nav>
         </div>
     )

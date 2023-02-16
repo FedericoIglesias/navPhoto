@@ -1,18 +1,18 @@
-import { React, useEffect, useState } from "react";
-import Skeleton from '@mui/material/Skeleton';
+import { React } from "react";
 import Box from '@mui/material/Box';
-import { useDispatch, useSelector } from "react-redux";
-
+import proof from '../assets/proof.jpeg'
 
 
 function Proof() {
-
-
+    
 
     return (
         <>
-            <Box style={{ height: '50%', width: '90%' }}>
-
+            <Box >
+                <div style={{position: 'relative'}}>
+                <p style={{zIndex: 4, position: 'absolute', color: 'white', fontSize: '40px',width: '100%', textAlign: 'center'}}>Found your favorite photo</p>
+                <img src={proof} alt="" style={{ height:'50vw', width: '100%' }}/>
+                </div>
             </Box>
         </>
     )

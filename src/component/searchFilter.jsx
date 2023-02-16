@@ -16,6 +16,9 @@ function SearchOrder() {
         dispatch(sortSearch(e.target.value))
     }
 
+    let searchAction = () =>{
+        dispatch(searchPhoto({search}))
+    }
     // useEffect(() => {
     //     dispatch(searchPhoto({search}))
     // }, [search] )
@@ -24,7 +27,7 @@ function SearchOrder() {
         <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            marginLeft: '5%'
+            paddingLeft: '5%'
         }}>
             <div>
                 <label htmlFor="" style={{ marginRight: '5px' }}>Sort by</label>
@@ -44,7 +47,8 @@ function SearchOrder() {
                 <input onChange={(ev) => setSearch(ev.target.value)} type="text" placeholder="Search" style={{
                     borderRadius: '5px',
                     padding: '2px 4px',
-                }} /><SearchIcon />
+                }} />
+                <SearchIcon onClick={() => searchAction()} />
                 
             </div>
         </div>

@@ -29,6 +29,7 @@ export function PhotoList() {
 
 
     let handleClick = (e) => {
+        clearTimeout(time)
         dispatch(addFavorite(e))
         setStyleAddPhoto({
             backgroundColor: 'green',

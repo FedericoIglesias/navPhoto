@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
@@ -45,7 +44,6 @@ export let ModalDescription = (id, auxDescription) => {
     let cancelDescription = () => {
         setOpen(false)
         setDescription('')
-        console.log(id)
     }
     let defaultDescription = (id, description) => {
             dispatch(editDescription({id, description}))
