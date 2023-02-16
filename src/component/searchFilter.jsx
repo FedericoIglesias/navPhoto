@@ -42,9 +42,8 @@ function SearchOrder() {
             <div style={{
                 display: 'flex',
                 marginRight: '5%'
-
             }}>
-                <input onChange={(ev) => setSearch(ev.target.value)} type="text" placeholder="Search" style={{
+                <input onChange={(ev) => setSearch(ev.target.value)} type="text" placeholder="Search for description" style={{
                     borderRadius: '5px',
                     padding: '2px 4px',
                 }} />
