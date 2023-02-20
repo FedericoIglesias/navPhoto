@@ -27,7 +27,8 @@ function SearchOrder() {
         <div style={{
             display: 'flex',
             justifyContent: 'space-between',
-            paddingLeft: '5%'
+            paddingLeft: '5%',
+            flexWrap: 'wrap'
         }}>
             <div>
                 <label htmlFor="" style={{ marginRight: '5px' }}>Sort by</label>
@@ -46,8 +47,9 @@ function SearchOrder() {
                 <input onChange={(ev) => setSearch(ev.target.value)} type="text" placeholder="Search for description" style={{
                     borderRadius: '5px',
                     padding: '2px 4px',
+                    width: '300px',
                 }} />
-                <SearchIcon onClick={() => searchAction()} />
+                <SearchIcon onClick={() => searchAction()} style={{background: '#900c3f', color: 'white'}}/>
                 
             </div>
         </div>
