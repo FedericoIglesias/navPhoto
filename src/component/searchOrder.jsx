@@ -17,10 +17,12 @@ function SearchOrder() {
         dispatch(sortSearch(e.target.value))
     }
 
-    let searchAction = () =>{
+    let searchAction = (ev) =>{
+        setSearch(ev.target.value)
         dispatch(searchPhoto({search}))
         dispatch(searchFAvorite(search))
     }
+
 
 
     return (
@@ -44,7 +46,7 @@ function SearchOrder() {
                 display: 'flex',
                 marginRight: '5%'
             }}>
-                <input onChange={(ev) => setSearch(ev.target.value)} type="text" placeholder="Search for description" style={{
+                <input onChange={(ev) => searchAction(ev)} type="text" placeholder="Search for description" style={{
                     borderRadius: '5px',
                     padding: '2px 4px',
                     width: '300px',

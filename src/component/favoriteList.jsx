@@ -36,12 +36,12 @@ function FavoriteList() {
             <Proof string={'Enjoy your favorite photos'} />
             <SearchOrder />
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-                {myFavorite.length == 0 ? <button style={{ margin: '20px', backgroundColor: '#900c3f' }} >
+                {myFavorite.length == 0 ? <button on style={{ margin: '20px', backgroundColor: '#900c3f' }} >
                     <Link to='/navPhoto' style={{ textDecoration: 'none', color: 'white' }} >Go Home</Link></button> :
                     myFavorite.map((item) => {
                         return (
                             <Container style={{ height: '600px', width: '300px', margin: '20px 20px', padding: '0px', backgroundColor: 'black' }}>
-                                <FavoritePhoto item={item} key={item.id} wasRemoved={wasRemoved} />
+                                <FavoritePhoto item={item} key={item.id} wasRemoved={wasRemoved}  />
                             </Container>
                         )
                     })}
