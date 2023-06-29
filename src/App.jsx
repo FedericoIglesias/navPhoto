@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/navPhoto" element={<PhotoList />} />
+        <Route path="/" element={<PhotoList />} />
         <Route path="/my-likes" element={<FavoriteList />} />
       </Routes>
       <Footer />
