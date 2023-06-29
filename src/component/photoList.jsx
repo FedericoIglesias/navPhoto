@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { searchPhoto } from "../features/search/searchSlice";
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -24,10 +24,10 @@ export function PhotoList() {
     }, 1500);
 
 
-    dispatch(searchPhoto({ page }))
-    // useEffect(() => {
-    // }, []
-    // )
+    useEffect(() => {
+        dispatch(searchPhoto({ page }))
+    }, [page]
+    )
 
 
     let handleClick = (e) => {
