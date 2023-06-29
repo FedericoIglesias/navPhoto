@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 
 
 function Header (){
+
+    const  styleLink = {color: 'white', textDecorationLine: 'none', fontSize: '16px',fontWeight: '700', margin: '0 30px'}
+
     return(
         <div style={{
             backgroundColor: '#900c3f',
@@ -19,8 +22,8 @@ function Header (){
         }}>
             <h1 style={{marginLeft: '30px',fontSize: '40px', fontWeight: '700'}}>NavPhoto</h1>
             <nav style={{display: 'flex'}}>
-            <Link to='/navPhoto' style={{color: 'white', textDecorationLine: 'none', fontSize: '16px',fontWeight: '700'}} >Home</Link>
-            <Link to='/my-likes' style={{color: 'white', textDecorationLine: 'none', margin: '0 30px', fontSize: '16px', fontWeight: '700'}} >My Likes</Link>
+            <Link to='/navPhoto' style={styleLink} >Home</Link>
+            <Link to='/my-likes' style={styleLink} >My Favourites</Link>
             </nav>
         </div>
     )

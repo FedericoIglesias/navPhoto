@@ -14,11 +14,11 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 export function PhotoList() {
 
-    let dispatch = useDispatch()
-    let photos = useSelector(store => store.search.list)
-    let favorite = useSelector(store => store.favorite.list)
-    let [page, setPage] = useState(1)
-    let [styleAddPhoto, setStyleAddPhoto] = useState({ display: 'none' })
+    const dispatch = useDispatch()
+    const photos = useSelector(store => store.search.list)
+    const favorite = useSelector(store => store.favorite.list)
+    const [page, setPage] = useState(1)
+    const [styleAddPhoto, setStyleAddPhoto] = useState({ display: 'none' })
     let time;
 
 
@@ -50,7 +50,7 @@ export function PhotoList() {
 
     return (
         <>
-            <Proof string={'Find you photo'} />
+            <Proof string={'Find your photo'} />
             <SearchOrder />
             <CssBaseline />
             <Container style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
@@ -84,7 +84,7 @@ export function PhotoList() {
                 />
             </div>
             <div style={styleAddPhoto}>
-                <p>The photo is add</p>
+                <p>The photo has been added</p>
             </div>
         </>
     )
