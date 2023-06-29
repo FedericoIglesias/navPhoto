@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
 import { editDescription } from "../features/favorite/favoriteSlice";
-import { fontWeight } from "@mui/system";
+
 
 
 const style = {

@@ -11,7 +11,9 @@ function FavoriteList() {
     let myFavorite = useSelector(store => store.favorite.list)
 
     let [styleRemovePhoto, setStyleRemovePhoto] = useState({ display: 'none' })
-    let time;
+    const time = () => setTimeout(() => {
+        setStyleRemovePhoto({ display: 'none' })
+    }, 1500)
 
     let wasRemoved = () => {
         setStyleRemovePhoto(
@@ -24,9 +26,7 @@ function FavoriteList() {
                         textAlign: 'center',
                         color: 'white'
                     })
-                time = setTimeout(() => {
-                    setStyleRemovePhoto({ display: 'none' })
-                }, 1500)
+                time()
             }
 
 
@@ -36,7 +36,7 @@ function FavoriteList() {
             <Proof string={'Enjoy your favorite photos'} />
             <SearchOrder />
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-                {myFavorite.length == 0 ? <button on style={{ margin: '20px', backgroundColor: '#900c3f' }} >
+                {myFavorite.length === 0 ? <button on style={{ margin: '20px', backgroundColor: '#900c3f' }} >
                     <Link to='/navPhoto' style={{ textDecoration: 'none', color: 'white' }} >Go Home</Link></button> :
                     myFavorite.map((item) => {
                         return (

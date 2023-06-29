@@ -2,7 +2,7 @@ import React from "react";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
-// const matches = useMediaQuery('(max-width:500px)');
+
 function Footer (){
     return(
         <div style={{
@@ -18,8 +18,8 @@ function Footer (){
             <h1>NavPhoto</h1>
             <p>Copyright by Iglesias Federico</p>
             <div>
-            <a href="https://facebook.com/" target='_blank'><FacebookIcon style={{color: 'white'}}/></a>
-            <a href="https://instagram.com/" target='_blank'><InstagramIcon style={{color: 'white'}}/></a>
+            <a href="https://facebook.com/" target='_blank' rel="noreferrer"><FacebookIcon style={{color: 'white'}}/></a>
+            <a href="https://instagram.com/" target='_blank' rel="noreferrer"><InstagramIcon style={{color: 'white'}}/></a>
             </div>
         </div>
     )

@@ -19,12 +19,14 @@ export function PhotoList() {
     const favorite = useSelector(store => store.favorite.list)
     const [page, setPage] = useState(1)
     const [styleAddPhoto, setStyleAddPhoto] = useState({ display: 'none' })
-    let time;
+    const time = () => setTimeout(() => {
+        setStyleAddPhoto({ display: 'none' })
+    }, 1500);
 
 
     useEffect(() => {
         dispatch(searchPhoto({ page }))
-    }, [page]
+    }, []
     )
 
 
@@ -39,9 +41,7 @@ export function PhotoList() {
             textAlign: 'center',
             color: 'white'
         })
-        time = setTimeout(() => {
-            setStyleAddPhoto({ display: 'none' })
-        }, 1500);
+        time();
     }
 
     let handleChange = (e, p) => {
