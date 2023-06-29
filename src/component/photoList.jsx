@@ -24,10 +24,10 @@ export function PhotoList() {
     }, 1500);
 
 
-    useEffect(() => {
-        dispatch(searchPhoto({ page }))
-    }, []
-    )
+    dispatch(searchPhoto({ page }))
+    // useEffect(() => {
+    // }, []
+    // )
 
 
     let handleClick = (e) => {
