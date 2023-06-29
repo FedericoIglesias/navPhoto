@@ -22,7 +22,7 @@ function Header (){
         }}>
             <h1 style={{marginLeft: '30px',fontSize: '40px', fontWeight: '700'}}>NavPhoto</h1>
             <nav style={{display: 'flex'}}>
-            <Link to='/navPhoto' style={styleLink} >Home</Link>
+            <Link to='/' style={styleLink} >Home</Link>
             <Link to='/my-likes' style={styleLink} >My Favourites</Link>
             </nav>
         </div>
