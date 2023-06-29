@@ -1,6 +1,6 @@
 {
   "name": "nav-photo",
-  "homepage": "/",
+  "homepage": "/nav-photo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
